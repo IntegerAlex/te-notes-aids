@@ -1,0 +1,27 @@
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background-color: #e0e0e0; /* Slightly darker background */
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #0044cc; /* Darker blue for links */
+  text-decoration: none;
+  border-bottom: 1px solid #0044cc; /* Underline effect */
+  transition: border-color 0.3s ease; /* Smooth transition */
+}
+
+a:hover {
+  color: #002266; /* Darker blue on hover */
+  border-color: #002266; /* Darker underline on hover */
+}
+
+a:focus {
+  outline: none; /* Remove outline on focus */
+}
+
+a:active {
+  color: #001133; /* Darker blue on active */
+}
+
