@@ -8,7 +8,7 @@ import fs from "fs";
 const storage = new Storage(
     {
         projectId: process.env.PROJECT_ID ||"my-project-id",
-        keyFilename: path.join(__dirname, "../positive-rush-416318-dbd6bc9d69a8.json" || "key.json")
+        keyFilename: path.join(__dirname, "../key.json" || "key.json")
     }
 );
 

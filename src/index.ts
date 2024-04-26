@@ -21,7 +21,7 @@ app.get('/download', async (req, res) => {
         const filename = req.query.filename as string;
         
         // Check for injection vulnerabilities
-        // await checkInjection(filename);
+        await checkInjection(filename);
 
         // Download the file
         const fileData:Buffer = await download(filename);

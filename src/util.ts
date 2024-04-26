@@ -16,22 +16,26 @@ export async function checkInjectionInt(id: string) {
 
 
 export async function checkInjection(name: string) {
+    // Remove spaces and special characters from the name
+    const sanitizedName = name.replace(/[^\w]/g, ''); // This will remove all non-word characters (alphanumeric characters and underscores)
+    
     const keywords = ["DROP", "DELETE", "SELECT", "UPDATE", "INSERT", "CREATE", "ALTER", "TRUNCATE", "UNION", 
                       "JOIN", "FROM", "WHERE", "HAVING", "GROUP BY", "ORDER BY", "LIMIT", "OFFSET", 
                       "FETCH", "EXISTS", "LIKE", "IN"];
     
     // Check for injection keywords
-    if (keywords.some(keyword => name.toUpperCase().includes(keyword))) {
-        
+    if (keywords.some(keyword => sanitizedName.toUpperCase().includes(keyword))) {
         return Promise.reject("Injection detected");
-
     }
 
-    // Check if the name contains only digits
-    // if (!/^[\d.]+$/.test(name)) {
-    //     return Promise.reject("Not a number");
-    // }
     // No injection detected
     return Promise.resolve();
 }
 
+
+// checkInjection("UNION SELECT * FROM users; DROP TABLE users").then(() => {
+//     console.log("No injection detected");
+// }
+// ).catch((err) => {
+//     console.log(err)
+// });
